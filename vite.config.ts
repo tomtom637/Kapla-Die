@@ -31,7 +31,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/",
+  base: "/Kapla-Die/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
