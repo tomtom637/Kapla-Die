@@ -52,8 +52,22 @@ export default function App() {
   }, [colors]);
 
   return (
-    <div className="min-h-dvh bg-gradient-to-tr from-slate-900 to-slate-800 text-slate-100">
-      <header className="mx-auto flex max-w-xl items-baseline justify-between p-4">
+    <main className="min-h-dvh bg-gradient-to-tr from-slate-900 to-slate-800 text-slate-100">
+      <div className="h-[calc(100vh-5rem)]">
+        <div
+          ref={colorsRef}
+          className="mx-auto grid max-h-[calc(100vh-5rem)] max-w-xl grid-cols-[repeat(auto-fill,minmax(90px,1fr))]  gap-4 overflow-y-scroll p-4"
+        >
+          {colors.map((color, index) => (
+            <ColorCell
+              key={color.id}
+              color={color.color}
+              isLast={index === colors.length - 1}
+            />
+          ))}
+        </div>
+      </div>
+      <footer className="mx-auto flex max-w-xl items-baseline justify-between p-4">
         <div>
           <Button
             className="size-[2.25rem] rounded-full bg-red-500 p-1 text-xs italic text-slate-900 hover:bg-red-400"
@@ -75,19 +89,7 @@ export default function App() {
             {colors.length} {colors.length === 1 ? "turn" : "turns"}
           </span>
         </div>
-      </header>
-      <div
-        ref={colorsRef}
-        className="mx-auto grid max-h-[37.5rem] max-w-xl grid-cols-[repeat(auto-fill,minmax(90px,1fr))]  gap-4 overflow-y-scroll p-4"
-      >
-        {colors.map((color, index) => (
-          <ColorCell
-            key={color.id}
-            color={color.color}
-            isLast={index === colors.length - 1}
-          />
-        ))}
-      </div>
-    </div>
+      </footer>
+    </main>
   );
 }
