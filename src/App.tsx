@@ -53,10 +53,10 @@ export default function App() {
 
   return (
     <main className="min-h-dvh bg-gradient-to-tr from-slate-900 to-slate-800 text-slate-100">
-      <div className="h-[calc(100dvh-5rem)]">
+      <div className="h-[calc(100dvh-6rem)]">
         <div
           ref={colorsRef}
-          className="mx-auto grid max-h-[calc(100dvh-5rem)] max-w-xl grid-cols-[repeat(auto-fill,minmax(90px,1fr))]  gap-4 overflow-y-scroll p-4"
+          className="mx-auto grid max-h-[calc(100dvh-6rem)] max-w-xl grid-cols-[repeat(auto-fill,minmax(90px,1fr))]  gap-4 overflow-y-scroll p-4"
         >
           {colors.map((color, index) => (
             <ColorCell
@@ -67,8 +67,8 @@ export default function App() {
           ))}
         </div>
       </div>
-      <footer className="mx-auto flex max-w-xl items-baseline justify-between p-4">
-        <div>
+      <footer className="relative mx-auto flex max-w-xl items-center justify-center p-4">
+        <div className="absolute left-[1rem] top-0 translate-y-1/2">
           <Button
             className="size-[2.25rem] rounded-full bg-red-500 p-1 text-xs italic text-slate-900 hover:bg-red-400"
             onClick={handleReset}
@@ -84,8 +84,8 @@ export default function App() {
             Pick a color
           </Button>
         </div>
-        <div>
-          <span className="block min-w-[3.6rem] text-end font-mono text-xs italic text-yellow-400">
+        <div className="absolute right-[1rem] top-0 translate-y-1/2">
+          <span className="block min-w-[3.6rem] py-[0.6rem] text-end font-mono text-xs italic text-yellow-400">
             {colors.length} {colors.length === 1 ? "turn" : "turns"}
           </span>
         </div>
