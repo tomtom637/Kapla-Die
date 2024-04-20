@@ -53,10 +53,10 @@ export default function App() {
 
   return (
     <main className="min-h-dvh bg-gradient-to-tr from-slate-900 to-slate-800 text-slate-100">
-      <div className="h-[calc(100vh-5rem)]">
+      <div className="h-[calc(100dvh-5rem)]">
         <div
           ref={colorsRef}
-          className="mx-auto grid max-h-[calc(100vh-5rem)] max-w-xl grid-cols-[repeat(auto-fill,minmax(90px,1fr))]  gap-4 overflow-y-scroll p-4"
+          className="mx-auto grid max-h-[calc(100dvh-5rem)] max-w-xl grid-cols-[repeat(auto-fill,minmax(90px,1fr))]  gap-4 overflow-y-scroll p-4"
         >
           {colors.map((color, index) => (
             <ColorCell
