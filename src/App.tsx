@@ -5,8 +5,6 @@ const colors = ["pink", "blue", "green", "yellow", "red", "white"] as const;
 
 type Color = (typeof colors)[number];
 
-const pickRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
-
 const colorsClasses = {
   pink: "bg-pink-500",
   blue: "bg-blue-500",
@@ -16,21 +14,16 @@ const colorsClasses = {
   white: "bg-white",
 } satisfies Record<Color, string>;
 
+const pickRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
+
 const ColorCell = ({ color, isLast }: { color: Color; isLast: boolean }) => (
   <div
-    className={`${colorsClasses[color]} ${isLast ? "animate-pulse" : ""} rounded-sm  p-2 text-center text-black`}
-  >
-    {color}
-  </div>
+    className={`${colorsClasses[color]} ${isLast ? "animate-grow-in-out" : ""} relative rounded-sm  p-3 text-center text-black`}
+  />
 );
 
-type ColorState = {
-  id: number;
-  color: Color;
-};
-
 export default function App() {
-  const [colors, setColors] = useState<ColorState[]>([]);
+  const [colors, setColors] = useState<{ id: number; color: Color }[]>([]);
   const colorsRef = useRef<HTMLDivElement>(null);
 
   const handleReset = () => setColors([]);
@@ -81,7 +74,7 @@ export default function App() {
             onClick={handleClick}
             className="rounded-full bg-slate-600 hover:bg-slate-500"
           >
-            Pick a color
+            Get a color
           </Button>
         </div>
         <div className="absolute right-[1rem] top-0 translate-y-1/2">
