@@ -60,8 +60,8 @@ export default function App() {
           ))}
         </div>
       </div>
-      <footer className="relative mx-auto flex max-w-xl items-center justify-center p-4">
-        <div className="absolute left-[1rem] top-0 translate-y-1/2">
+      <footer className="relative mx-auto flex max-w-xl items-baseline justify-center p-4">
+        <div className="absolute left-[1rem] top-[50%] translate-y-[-50%]">
           <Button
             className="size-[2.25rem] rounded-full bg-red-500 p-1 text-xs italic text-slate-900 hover:bg-red-400"
             onClick={handleReset}
@@ -72,12 +72,12 @@ export default function App() {
         <div>
           <Button
             onClick={handleClick}
-            className="rounded-full bg-slate-600 hover:bg-slate-500"
+            className="rounded-full bg-slate-600 text-lg hover:bg-slate-500"
           >
             Get a color
           </Button>
         </div>
-        <div className="absolute right-[1rem] top-0 translate-y-1/2">
+        <div className="absolute right-[1rem] top-[50%] translate-y-[-50%]">
           <span className="block min-w-[3.6rem] py-[0.6rem] text-end font-mono text-xs italic text-yellow-400">
             {colors.length} {colors.length === 1 ? "turn" : "turns"}
           </span>
