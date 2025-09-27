@@ -40,7 +40,7 @@ jobs:
 
       - name: Setup Pages
         # use latest configure-pages (v5) which matches current examples
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v3
 
       - name: Upload artifact
         # use the generic upload-artifact v4 and set the artifact name
