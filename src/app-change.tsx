@@ -1,4 +1,10 @@
+// libs
 import { useState, useRef, useEffect } from "react";
+
+// utils
+import { requestWakeLock } from "./utils";
+
+// components
 import { Button } from "./components/ui/button";
 
 const colors = ["pink", "blue", "green", "yellow", "red", "white"] as const;
@@ -34,6 +40,10 @@ export default function App() {
       { id: prev.length + 1, color: pickRandomColor() },
     ]);
   };
+
+  useEffect(() => {
+    requestWakeLock();
+  }, []);
 
   useEffect(() => {
     if (colorsRef.current && colors.length > 0) {
