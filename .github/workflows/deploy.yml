@@ -34,9 +34,10 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: lts/*
-          cache: "pnpm"
+          cache: "npm"
+          cache-dependency-path: "**/pnpm-lock.yaml"
       - name: Install dependencies
-        run: pnpm ci
+        run: npm ci
       - name: Build
         run: npm build
       - name: Setup Pages
